@@ -2,6 +2,7 @@
 \usepackage[margin=1.6cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
@@ -12,10 +13,18 @@
 \titleformat{\section}{\large\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{7pt}{3pt}
 \begin{document}
-\begin{center}
+\noindent
+\begin{minipage}[c]{0.80\textwidth}
 {\LARGE\bfseries Qiqi Yao}\\[4pt]
-Computer Vision and Medical Image Analysis\quad | \quad \href{https://github.com/Seven17777}{GitHub: Seven17777}
-\end{center}
+Computer Vision and Medical Image Analysis\\[3pt]
+{\small Female\quad | \quad Born Jan 2004\quad | \quad Baoshan, Shanghai, China}\\[2pt]
+{\small Phone: +86 13679966199\quad | \quad \href{mailto:963782207@qq.com}{\nolinkurl{963782207@qq.com}}}\\[2pt]
+{\small \href{https://github.com/Seven17777}{GitHub: Seven17777}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.17\textwidth}
+\raggedleft\includegraphics[height=3.0cm,keepaspectratio]{portrait.jpg}
+\end{minipage}
+\par\vspace{3pt}
 
 \section{Profile}
 Master's student in Electronic Information with experience in object detection, image classification, segmentation, and 3D geometry processing. Focused on medical image analysis, algorithm development, model training, and practical implementation.

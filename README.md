@@ -1,6 +1,6 @@
 # Practice 3 使用 GitHub Actions 编译 LaTeX 简历
 
-作者：姚其其 / Qiqi Yao / Seven17777。英文简历根据本人提供的 Word 简历翻译，使用单栏版式，隐藏手机、邮箱、住址、出生年月等个人信息，保留教育、技能、项目、荣誉及论文投稿状态。
+作者：姚其其 / Qiqi Yao / Seven17777。英文简历根据本人提供的 Word 简历翻译，使用单栏版式。按本人授权，保留并公开原简历中的照片、手机、邮箱、性别、出生年月及所在地区，同时保留教育、技能、项目、荣誉及论文投稿状态。
 
 将 `main.tex` 推送到 main，或在 Actions 手动运行 Build LaTeX CV。成功后，从运行页下载 `latex-cv-pdf`，也可以从 Releases 下载 `main.pdf`。
 
