@@ -1,0 +1,43 @@
+name: Build LaTeX CV
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Chinese LaTeX environment
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk
+      - name: Compile CV twice for hyperlinks
+        run: |
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+      - uses: actions/upload-artifact@v4
+        with:
+          name: latex-cv-pdf
+          path: main.pdf
+          if-no-files-found: error
+  release:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: latex-cv-pdf
+          path: pdf
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          COMMIT: ${{ github.sha }}
+          TAG: cv-${{ github.run_number }}-${{ github.run_attempt }}
+        run: gh release create "$TAG" pdf/main.pdf --target "$COMMIT" --title "$TAG" --notes "Chinese LaTeX CV compiled with XeLaTeX by GitHub Actions."
