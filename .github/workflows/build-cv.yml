@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
-      - name: Compile Chinese CV with full TeX Live
+      - name: Compile English CV with full TeX Live
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
@@ -43,4 +43,4 @@ jobs:
           GH_REPO: ${{ github.repository }}
           COMMIT: ${{ github.sha }}
           TAG: cv-${{ github.run_number }}-${{ github.run_attempt }}
-        run: gh release create "$TAG" pdf/main.pdf --target "$COMMIT" --title "$TAG" --notes "Chinese LaTeX CV compiled with XeLaTeX by GitHub Actions."
+        run: gh release create "$TAG" pdf/main.pdf --target "$COMMIT" --title "$TAG" --notes "English LaTeX CV compiled with XeLaTeX by GitHub Actions."

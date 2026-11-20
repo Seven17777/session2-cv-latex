@@ -1,51 +1,66 @@
-\documentclass[UTF8,a4paper,10pt]{ctexart}
+\documentclass[a4paper,10pt]{article}
 \usepackage[margin=1.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
-\setlist[itemize]{leftmargin=1.3em,itemsep=2pt,topsep=2pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=1.3em,itemsep=1pt,topsep=2pt}
 \titleformat{\section}{\large\bfseries}{}{0pt}{}
-\titlespacing*{\section}{0pt}{9pt}{3pt}
+\titlespacing*{\section}{0pt}{7pt}{3pt}
 \begin{document}
 \begin{center}
-{\LARGE\bfseries 姚其其}\\[4pt]
-图像处理与视觉算法方向\quad | \quad \href{https://github.com/Seven17777}{GitHub: Seven17777}
+{\LARGE\bfseries Qiqi Yao}\\[4pt]
+Computer Vision and Medical Image Analysis\quad | \quad \href{https://github.com/Seven17777}{GitHub: Seven17777}
 \end{center}
-\section{个人介绍与技能}
-熟悉目标检测、图像分类、图像分割与三维几何处理，具备算法设计、优化与产品化落地经验。\\
-Python、C/C++、PyTorch、OpenCV、PyQt5；深度学习、计算机视觉、医学影像；英语可读写技术文档。
-\section{教育背景}
-\textbf{上海大学}\quad 电子信息硕士\hfill 2026.09 至今\\
-研究方向：医学图像处理、AI视觉算法设计；法国工程师认证项目。
 
-\textbf{深圳大学}\quad 自动化学士\hfill 2022.08--2026.06\\
-课程：模式识别（A）、面向对象程序设计（A+）、微机原理与接口技术（A）、自动控制原理（A）。
-\section{项目经历}
-\textbf{Endo-TTAP 内镜组织点追踪框架研究}\quad 主要参与人\hfill 2024.07--2025.05
+\section{Profile}
+Master's student in Electronic Information with experience in object detection, image classification, segmentation, and 3D geometry processing. Focused on medical image analysis, algorithm development, model training, and practical implementation.
+
+\section{Education}
+\textbf{Shanghai University}\quad Master's in Electronic Information\hfill Sep 2026 -- Present\\
+Research interests: medical image analysis and AI-based computer vision.
+
+\textbf{Shenzhen University}\quad Bachelor's in Automation\hfill Aug 2022 -- Jun 2026\\
+Selected coursework: Pattern Recognition (A), Object-Oriented Programming (A+), Microcomputer Principles and Interfacing (A), Automatic Control Principles (A).
+
+\section{Technical Skills}
+\textbf{Programming and tools:} Python, C/C++, PyTorch, OpenCV, PyQt5.\\
+\textbf{Areas:} Deep learning, computer vision, medical imaging, and 3D geometry processing.\\
+\textbf{English:} Able to read and write technical documentation.
+
+\section{Project Experience}
+\textbf{Endo-TTAP: Endoscopic Tissue Point Tracking}\hfill Jul 2024 -- May 2025\\
+\textit{Project Contributor}
 \begin{itemize}
-\item 面向内镜组织形变、器械遮挡、反光和镜头抖动等问题，参与多模态特征融合与混合监督追踪框架研究。
-\item 设计四步伪标签生成流程：SAM2分割、XFeat匹配、MFT与CoTracker3双追踪器传播、DFT质量筛选；将稀疏首尾帧标注转化为稠密轨迹。
-\item 负责模型训练、参数调优与实验验证，为半监督训练提供监督信号。相关论文向 IEEE Transactions on Medical Imaging 投稿中。
+\item Contributed to a tracking framework combining multimodal features and mixed supervision to address tissue deformation, occlusion, reflections, and camera motion in endoscopic video.
+\item Designed a four-stage pseudo-label pipeline using SAM2 segmentation, XFeat matching, MFT/CoTracker3 propagation, and DFT quality filtering to convert sparse first- and last-frame annotations into dense trajectories.
+\item Trained and tuned models and conducted experimental validation. Related manuscript: submission to \textit{IEEE Transactions on Medical Imaging} in progress.
 \end{itemize}
-\textbf{精确皮穿刺手术机器人系统}\quad 主要参与人\hfill 2024.01--2024.07
+
+\textbf{Precision Percutaneous Puncture Robotic System}\hfill Jan 2024 -- Jul 2024\\
+\textit{Project Contributor}
 \begin{itemize}
-\item 针对呼吸运动导致的穿刺点漂移，设计基于圆形标记点的实时跟踪与位移补偿方案。
-\item 基于OpenCV完成平滑滤波、边缘检测、几何约束筛选和椭圆拟合，结合双目视觉解算空间坐标，反馈位移偏差以支持机械臂位姿补偿。
-\item 参与三维重建坐标映射验证，在公开甲状腺超声数据集上平均误差小于1毫米。项目获“挑战杯”广东大学生课外学术科技作品竞赛特等奖。
+\item Designed circular-marker tracking and displacement compensation to address respiratory motion during needle insertion.
+\item Used OpenCV filtering, edge detection, geometric constraints, and ellipse fitting to locate markers; applied stereo vision to estimate 3D coordinates and provide displacement feedback for robotic arm pose compensation.
+\item Contributed to coordinate-mapping validation for 3D reconstruction on a public thyroid ultrasound dataset, with a mean error below 1 mm. Project received a Special Prize in the Guangdong Challenge Cup competition.
 \end{itemize}
-\textbf{甲状腺癌症的人工智能辅助诊断}\quad 项目负责人\hfill 2023.09--2024.03
+
+\textbf{AI-Assisted Diagnosis of Thyroid Cancer}\hfill Sep 2023 -- Mar 2024\\
+\textit{Project Lead}
 \begin{itemize}
-\item 基于DeepLabv3+语义分割与ViT分类模型开发甲状腺超声病灶分割及良恶性分类系统，使用PyQt5搭建可视化交互平台。
-\item 主导模型搭建、调优、训练及性能评估，参与注意力特征提取模块设计；负责技术方案、团队协作和项目进度管理。
-\item 大学生创新创业训练计划项目省级优秀结题。
+\item Developed and tuned DeepLabv3+ segmentation and ViT classification models for thyroid ultrasound lesion segmentation and benign/malignant classification, with a PyQt5 interface.
+\item Contributed to attention-based feature extraction and coordinated technical planning, team collaboration, and project progress.
+\item Received a provincial-level Outstanding Completion rating under the Undergraduate Innovation and Entrepreneurship Training Program.
 \end{itemize}
-\section{荣誉奖项}
-中国国际大学生创新创业大赛（2024）银奖\hfill 2024.10\\
-第十八届“挑战杯”课外学术科技作品竞赛三等奖\hfill 2023.10\\
-第十八届“挑战杯”广东大学生课外学术科技作品竞赛特等奖\hfill 2025.07\\
-全国大学生数学建模竞赛广东省二等奖\hfill 2024.01\\
-深圳大学“公益之星”二等奖、“优秀学生干部”二等奖\hfill 2023.12
+
+\section{Honors and Awards}
+Silver Medal, China International College Students' Innovation Competition (2024)\hfill Oct 2024\\
+Third Prize, 18th Challenge Cup National Academic Science and Technology Competition\hfill Oct 2023\\
+Special Prize, 18th Challenge Cup Guangdong Academic Science and Technology Competition\hfill Jul 2025\\
+Second Prize (Guangdong), National College Student Mathematical Modeling Competition\hfill Jan 2024\\
+Second Prizes, Public Service Star and Outstanding Student Leader, Shenzhen University\hfill Dec 2023
 \end{document}
