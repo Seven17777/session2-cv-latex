@@ -7,18 +7,21 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: cv-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
-      - name: Install Chinese LaTeX environment
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended fonts-noto-cjk
-      - name: Compile CV twice for hyperlinks
-        run: |
-          xelatex -interaction=nonstopmode -halt-on-error main.tex
-          xelatex -interaction=nonstopmode -halt-on-error main.tex
+      - name: Compile Chinese CV with full TeX Live
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          texlive_version: '2025'
+          latexmk_use_xelatex: true
       - uses: actions/upload-artifact@v4
         with:
           name: latex-cv-pdf
