@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Install Chinese LaTeX environment
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended fonts-noto-cjk
       - name: Compile CV twice for hyperlinks
         run: |
           xelatex -interaction=nonstopmode -halt-on-error main.tex
